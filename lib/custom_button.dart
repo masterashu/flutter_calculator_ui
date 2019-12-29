@@ -26,15 +26,15 @@ class _MyButtonState extends State<MyButton> {
         border: Border.all(color: widget.theme.border, width: 1),
         boxShadow: [
           BoxShadow(
-            blurRadius: 10,
-            spreadRadius: 4,
-            offset: Offset(4, 4),
+            blurRadius: 4,
+            spreadRadius: 2,
+            offset: Offset(2, 2),
             color: widget.theme.shadow2,
           ),
           BoxShadow(
-            blurRadius: 10,
-            spreadRadius: 4,
-            offset: Offset(-4, -4),
+            blurRadius: 4,
+            spreadRadius: 2,
+            offset: Offset(-2, -2),
             color: widget.theme.shadow1,
           ),
         ],
@@ -76,13 +76,13 @@ class _MyLongButtonState extends State<MyLongButton> {
         border: Border.all(color: widget.theme.border, width: 1),
         boxShadow: [
           BoxShadow(
-            blurRadius: 4,
+            blurRadius: 3,
             color: widget.theme.shadow1,
             offset: Offset(4,2),
-            spreadRadius: -2,
+            spreadRadius: -1,
           ),
           BoxShadow(
-            blurRadius: 10,
+            blurRadius: 8,
             offset: Offset(8,6),
             color: widget.theme.background,
           ),
@@ -104,28 +104,5 @@ class _MyLongButtonState extends State<MyLongButton> {
         ),
       ),
     );
-  }
-}
-
-class CustomBoxShadow extends BoxShadow {
-  final BlurStyle blurStyle;
-
-  const CustomBoxShadow({
-    Color color = const Color(0xFF000000),
-    Offset offset = Offset.zero,
-    double blurRadius = 0.0,
-    this.blurStyle = BlurStyle.normal,
-  }) : super(color: color, offset: offset, blurRadius: blurRadius);
-
-  @override
-  Paint toPaint() {
-    final Paint result = Paint()
-      ..color = color
-      ..maskFilter = MaskFilter.blur(this.blurStyle, blurSigma);
-    assert(() {
-      if (debugDisableShadows) result.maskFilter = null;
-      return true;
-    }());
-    return result;
   }
 }

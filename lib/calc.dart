@@ -34,32 +34,32 @@ MyColorTheme otherButtonLight = MyColorTheme(
 
 // Dark Theme Buttons
 MyColorTheme numberButtonDark = MyColorTheme(
-  Color.fromARGB(255, 48, 48, 48),
+  Color.fromARGB(255, 38, 38, 38),
   Color.fromARGB(255, 243, 243, 243),
   Color.fromARGB(255, 48, 48, 48),
-  Color.fromARGB(255, 52, 52, 52),
   Color.fromARGB(255, 40, 40, 40),
+  Color.fromARGB(255, 34, 34, 34),
 );
 MyColorTheme zeroButtonDark = MyColorTheme(
-  Color.fromARGB(255, 48, 48, 48),
+  Color.fromARGB(255, 38, 38, 38),
   Color.fromARGB(255, 243, 243, 243),
   Color.fromARGB(255, 48, 48, 48),
-  Color.fromARGB(255, 52, 52, 52),
+  Color.fromARGB(255, 32, 32, 32),
   Color.fromARGB(255, 40, 40, 40),
 );
 MyColorTheme mathButtonDark = MyColorTheme(
-  Color.fromARGB(255, 48, 48, 48),
+  Color.fromARGB(255, 38, 38, 38),
   Color.fromARGB(255, 238, 134, 47),
   Color.fromARGB(255, 48, 48, 48),
-  Color.fromARGB(255, 52, 52, 52),
   Color.fromARGB(255, 40, 40, 40),
+  Color.fromARGB(255, 34, 34, 34),
 );
 MyColorTheme otherButtonDark = MyColorTheme(
-  Color.fromARGB(255, 48, 48, 48),
+  Color.fromARGB(255, 38, 38, 38),
   Color.fromARGB(255, 166, 166, 166),
   Color.fromARGB(255, 48, 48, 48),
-  Color.fromARGB(255, 52, 52, 52),
   Color.fromARGB(255, 40, 40, 40),
+  Color.fromARGB(255, 34, 34, 34),
 );
 
 class Home extends StatefulWidget {
@@ -90,7 +90,7 @@ class _HomeState extends State<Home> {
       body: Container(
         color: (isDark == false)
             ? Color.fromARGB(255, 238, 238, 238)
-            : Color.fromARGB(255, 48, 48, 48),
+            : Color.fromARGB(255, 38, 38, 38),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
