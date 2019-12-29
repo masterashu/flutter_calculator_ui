@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class MyColorTheme {
   Color background, text, border, shadow1, shadow2;
 
-  MyColorTheme(
-      this.background, this.text, this.border, this.shadow1, this.shadow2);
+  MyColorTheme(this.background, this.text, this.border, this.shadow1, this.shadow2);
 }
 
 class MyButton extends StatefulWidget {
   final MyColorTheme theme;
   final String text;
+
   MyButton(this.text, this.theme, {Key key}) : super(key: key);
 
   @override
@@ -112,6 +112,7 @@ class _MyButtonState extends State<MyButton> {
 class MyLongButton extends StatefulWidget {
   final MyColorTheme theme;
   final String text;
+
   MyLongButton(this.text, this.theme, {Key key}) : super(key: key);
 
   @override
