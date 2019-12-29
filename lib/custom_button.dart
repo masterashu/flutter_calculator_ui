@@ -17,38 +17,81 @@ class MyButton extends StatefulWidget {
 }
 
 class _MyButtonState extends State<MyButton> {
+  bool pressed;
+  BoxDecoration normalDecoration, pressedDecoration;
+
+  @override
+  void initState() {
+    super.initState();
+    this.pressed = false;
+    this.normalDecoration = BoxDecoration(
+      borderRadius: BorderRadius.circular(120),
+      color: widget.theme.background,
+      border: Border.all(color: widget.theme.border, width: 1),
+      boxShadow: [
+        BoxShadow(
+          blurRadius: 4,
+          spreadRadius: 2,
+          offset: Offset(2, 2),
+          color: widget.theme.shadow2,
+        ),
+        BoxShadow(
+          blurRadius: 4,
+          spreadRadius: 2,
+          offset: Offset(-2, -2),
+          color: widget.theme.shadow1,
+        ),
+      ],
+    );
+    this.pressedDecoration = BoxDecoration(
+      borderRadius: BorderRadius.circular(120),
+      color: Colors.transparent,
+      border: Border.all(color: widget.theme.border, width: 1),
+      boxShadow: [
+        BoxShadow(
+          spreadRadius: -2,
+          blurRadius: 2,
+          color: widget.theme.shadow2,
+          offset: Offset.zero,
+        ),
+        BoxShadow(
+          spreadRadius: 0,
+          blurRadius: 10,
+          offset: Offset(2, 2),
+          color: widget.theme.background,
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(120),
-        color: widget.theme.background,
-        border: Border.all(color: widget.theme.border, width: 1),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 4,
-            spreadRadius: 2,
-            offset: Offset(2, 2),
-            color: widget.theme.shadow2,
-          ),
-          BoxShadow(
-            blurRadius: 4,
-            spreadRadius: 2,
-            offset: Offset(-2, -2),
-            color: widget.theme.shadow1,
-          ),
-        ],
-      ),
-      width: 80,
-      height: 80,
-      margin: EdgeInsets.all(5),
-      child: Center(
-        child: Text(
-          widget.text,
-          style: TextStyle(
-            fontFamily: "Montserrat",
-            fontSize: 36,
-            color: widget.theme.text,
+    return GestureDetector(
+      onTapDown: (a) {
+        print("pressed");
+        setState(() {
+          pressed = true;
+        });
+      },
+      onTapUp: (a) {
+        print("released");
+        setState(() {
+          pressed = false;
+        });
+      },
+      child: Container(
+        decoration: (pressed) ? this.pressedDecoration : this.normalDecoration,
+        width: 80,
+        height: 80,
+        margin: EdgeInsets.all(5),
+        child: Center(
+          child: Text(
+            widget.text,
+            style: TextStyle(
+              fontFamily: "Montserrat",
+              fontSize: 36,
+              color: widget.theme.text,
+            ),
           ),
         ),
       ),
@@ -66,6 +109,52 @@ class MyLongButton extends StatefulWidget {
 }
 
 class _MyLongButtonState extends State<MyLongButton> {
+  bool pressed;
+  BoxDecoration normalDecoration, pressedDecoration;
+
+  void initState() {
+    super.initState();
+    this.pressed = false;
+    this.normalDecoration = BoxDecoration(
+      borderRadius: BorderRadius.circular(120),
+      color: widget.theme.background,
+      border: Border.all(color: widget.theme.border, width: 1),
+      boxShadow: [
+        BoxShadow(
+          blurRadius: 4,
+          spreadRadius: 2,
+          offset: Offset(2, 2),
+          color: widget.theme.shadow2,
+        ),
+        BoxShadow(
+          blurRadius: 4,
+          spreadRadius: 2,
+          offset: Offset(-2, -2),
+          color: widget.theme.shadow1,
+        ),
+      ],
+    );
+    this.pressedDecoration = BoxDecoration(
+      borderRadius: BorderRadius.circular(120),
+      color: Colors.transparent,
+      border: Border.all(color: widget.theme.border, width: 1),
+      boxShadow: [
+        BoxShadow(
+          spreadRadius: -2,
+          blurRadius: 4,
+          color: widget.theme.shadow2,
+          offset: Offset.zero,
+        ),
+        BoxShadow(
+          spreadRadius: -1,
+          blurRadius: 10,
+          offset: Offset(2, 2),
+          color: widget.theme.background,
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -78,12 +167,12 @@ class _MyLongButtonState extends State<MyLongButton> {
           BoxShadow(
             blurRadius: 3,
             color: widget.theme.shadow1,
-            offset: Offset(4,2),
+            offset: Offset(4, 2),
             spreadRadius: -1,
           ),
           BoxShadow(
             blurRadius: 8,
-            offset: Offset(8,6),
+            offset: Offset(8, 6),
             color: widget.theme.background,
           ),
         ],

@@ -38,7 +38,7 @@ MyColorTheme numberButtonDark = MyColorTheme(
   Color.fromARGB(255, 243, 243, 243),
   Color.fromARGB(255, 48, 48, 48),
   Color.fromARGB(255, 40, 40, 40),
-  Color.fromARGB(255, 34, 34, 34),
+  Color.fromARGB(255, 32, 32, 32),
 );
 MyColorTheme zeroButtonDark = MyColorTheme(
   Color.fromARGB(255, 38, 38, 38),
@@ -52,14 +52,14 @@ MyColorTheme mathButtonDark = MyColorTheme(
   Color.fromARGB(255, 238, 134, 47),
   Color.fromARGB(255, 48, 48, 48),
   Color.fromARGB(255, 40, 40, 40),
-  Color.fromARGB(255, 34, 34, 34),
+  Color.fromARGB(255, 32, 32, 32),
 );
 MyColorTheme otherButtonDark = MyColorTheme(
   Color.fromARGB(255, 38, 38, 38),
   Color.fromARGB(255, 166, 166, 166),
   Color.fromARGB(255, 48, 48, 48),
   Color.fromARGB(255, 40, 40, 40),
-  Color.fromARGB(255, 34, 34, 34),
+  Color.fromARGB(255, 32, 32, 32),
 );
 
 class Home extends StatefulWidget {
@@ -133,25 +133,31 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         MyButton(
-                            "AC",
-                            (isDark == false)
-                                ? otherButtonLight
-                                : otherButtonDark),
+                          "AC",
+                          (isDark == false)
+                              ? otherButtonLight
+                              : otherButtonDark,
+                          key: ObjectKey("AC$isDark"),
+                        ),
                         MyButton(
-                            "+/-",
-                            (isDark == false)
-                                ? otherButtonLight
-                                : otherButtonDark),
+                          "+/-",
+                          (isDark == false)
+                              ? otherButtonLight
+                              : otherButtonDark,
+                          key: ObjectKey("+/-$isDark"),
+                        ),
                         MyButton(
-                            "%",
-                            (isDark == false)
-                                ? otherButtonLight
-                                : otherButtonDark),
+                          "%",
+                          (isDark == false)
+                              ? otherButtonLight
+                              : otherButtonDark,
+                          key: ObjectKey("%$isDark"),
+                        ),
                         MyButton(
-                            "÷",
-                            (isDark == false)
-                                ? mathButtonLight
-                                : mathButtonDark),
+                          "÷",
+                          (isDark == false) ? mathButtonLight : mathButtonDark,
+                          key: ObjectKey("÷$isDark"),
+                        ),
                       ],
                     ),
                   ),
@@ -162,25 +168,31 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         MyButton(
-                            "7",
-                            (isDark == false)
-                                ? numberButtonLight
-                                : numberButtonDark),
+                          "7",
+                          (isDark == false)
+                              ? numberButtonLight
+                              : numberButtonDark,
+                          key: ObjectKey("7$isDark"),
+                        ),
                         MyButton(
-                            "8",
-                            (isDark == false)
-                                ? numberButtonLight
-                                : numberButtonDark),
+                          "8",
+                          (isDark == false)
+                              ? numberButtonLight
+                              : numberButtonDark,
+                          key: ObjectKey("8$isDark"),
+                        ),
                         MyButton(
-                            "9",
-                            (isDark == false)
-                                ? numberButtonLight
-                                : numberButtonDark),
+                          "9",
+                          (isDark == false)
+                              ? numberButtonLight
+                              : numberButtonDark,
+                          key: ObjectKey("9$isDark"),
+                        ),
                         MyButton(
-                            "×",
-                            (isDark == false)
-                                ? mathButtonLight
-                                : mathButtonDark),
+                          "×",
+                          (isDark == false) ? mathButtonLight : mathButtonDark,
+                          key: ObjectKey("x$isDark"),
+                        ),
                       ],
                     ),
                   ),
@@ -191,25 +203,35 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         MyButton(
-                            "4",
-                            (isDark == false)
-                                ? numberButtonLight
-                                : numberButtonDark),
+                          "4",
+                          (isDark == false)
+                              ? numberButtonLight
+                              : numberButtonDark,
+                                                        key: ObjectKey("4$isDark"),
+
+                        ),
                         MyButton(
-                            "5",
-                            (isDark == false)
-                                ? numberButtonLight
-                                : numberButtonDark),
+                          "5",
+                          (isDark == false)
+                              ? numberButtonLight
+                              : numberButtonDark,
+                                                        key: ObjectKey("5$isDark"),
+
+                        ),
                         MyButton(
-                            "6",
-                            (isDark == false)
-                                ? numberButtonLight
-                                : numberButtonDark),
+                          "6",
+                          (isDark == false)
+                              ? numberButtonLight
+                              : numberButtonDark,
+                                                        key: ObjectKey("6$isDark"),
+
+                        ),
                         MyButton(
-                            "−",
-                            (isDark == false)
-                                ? mathButtonLight
-                                : mathButtonDark),
+                          "−",
+                          (isDark == false) ? mathButtonLight : mathButtonDark,
+                                                    key: ObjectKey("−$isDark"),
+
+                        ),
                       ],
                     ),
                   ),
@@ -220,25 +242,32 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         MyButton(
-                            "1",
-                            (isDark == false)
-                                ? numberButtonLight
-                                : numberButtonDark),
+                          "1",
+                          (isDark == false)
+                              ? numberButtonLight
+                              : numberButtonDark,
+                                                        key: ObjectKey("1$isDark"),
+
+                        ),
                         MyButton(
-                            "2",
-                            (isDark == false)
-                                ? numberButtonLight
-                                : numberButtonDark),
+                          "2",
+                          (isDark == false)
+                              ? numberButtonLight
+                              : numberButtonDark,
+                              key: ObjectKey("2$isDark"),
+                        ),
                         MyButton(
-                            "3",
-                            (isDark == false)
-                                ? numberButtonLight
-                                : numberButtonDark),
+                          "3",
+                          (isDark == false)
+                              ? numberButtonLight
+                              : numberButtonDark,
+                              key: ObjectKey("3$isDark"),
+                        ),
                         MyButton(
-                            "+",
-                            (isDark == false)
-                                ? mathButtonLight
-                                : mathButtonDark),
+                          "+",
+                          (isDark == false) ? mathButtonLight : mathButtonDark,
+                          key: ObjectKey("+$isDark"),
+                        ),
                       ],
                     ),
                   ),
@@ -249,20 +278,22 @@ class _HomeState extends State<Home> {
                       mainAxisSize: MainAxisSize.max,
                       children: <Widget>[
                         MyLongButton(
-                            "0",
-                            (isDark == false)
-                                ? zeroButtonLight
-                                : zeroButtonDark),
+                          "0",
+                          (isDark == false) ? zeroButtonLight : zeroButtonDark,
+                          key: ObjectKey("0$isDark"),
+                        ),
                         MyButton(
-                            ".",
-                            (isDark == false)
-                                ? numberButtonLight
-                                : numberButtonDark),
+                          ".",
+                          (isDark == false)
+                              ? numberButtonLight
+                              : numberButtonDark,
+                              key: ObjectKey(".$isDark"),
+                        ),
                         MyButton(
-                            "=",
-                            (isDark == false)
-                                ? mathButtonLight
-                                : mathButtonDark),
+                          "=",
+                          (isDark == false) ? mathButtonLight : mathButtonDark,
+                          key: ObjectKey("=$isDark"),
+                        ),
                       ],
                     ),
                   ),
