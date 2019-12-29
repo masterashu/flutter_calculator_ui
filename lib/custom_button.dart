@@ -68,13 +68,23 @@ class _MyButtonState extends State<MyButton> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (a) {
-        print("pressed");
+        // print("pressed");
         setState(() {
           pressed = true;
         });
       },
       onTapUp: (a) {
-        print("released");
+        // print("released");
+        setState(() {
+          pressed = false;
+        });
+      },
+      onHorizontalDragEnd: (x) {
+        setState(() {
+          pressed = false;
+        });
+      },
+      onVerticalDragEnd: (x) {
         setState(() {
           pressed = false;
         });
@@ -121,16 +131,16 @@ class _MyLongButtonState extends State<MyLongButton> {
       border: Border.all(color: widget.theme.border, width: 1),
       boxShadow: [
         BoxShadow(
-          blurRadius: 4,
-          spreadRadius: 2,
-          offset: Offset(2, 2),
-          color: widget.theme.shadow2,
+          blurRadius: 12,
+          spreadRadius: 1,
+          color: widget.theme.shadow1,
+          offset: Offset(4, 2),
         ),
         BoxShadow(
-          blurRadius: 4,
+          blurRadius: 12,
           spreadRadius: 2,
-          offset: Offset(-2, -2),
-          color: widget.theme.shadow1,
+          offset: Offset(-4, -2),
+          color: widget.theme.shadow2,
         ),
       ],
     );
@@ -140,15 +150,14 @@ class _MyLongButtonState extends State<MyLongButton> {
       border: Border.all(color: widget.theme.border, width: 1),
       boxShadow: [
         BoxShadow(
-          spreadRadius: -2,
-          blurRadius: 4,
-          color: widget.theme.shadow2,
-          offset: Offset.zero,
+          blurRadius: 3,
+          color: widget.theme.shadow1,
+          offset: Offset(4, 2),
+          spreadRadius: -1,
         ),
         BoxShadow(
-          spreadRadius: -1,
-          blurRadius: 10,
-          offset: Offset(2, 2),
+          blurRadius: 8,
+          offset: Offset(8, 6),
           color: widget.theme.background,
         ),
       ],
@@ -157,38 +166,54 @@ class _MyLongButtonState extends State<MyLongButton> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        backgroundBlendMode: BlendMode.darken,
-        borderRadius: BorderRadius.circular(120),
-        color: Colors.transparent,
-        border: Border.all(color: widget.theme.border, width: 1),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 3,
-            color: widget.theme.shadow1,
-            offset: Offset(4, 2),
-            spreadRadius: -1,
-          ),
-          BoxShadow(
-            blurRadius: 8,
-            offset: Offset(8, 6),
-            color: widget.theme.background,
-          ),
-        ],
-      ),
-      width: 200,
-      height: 80,
-      margin: EdgeInsets.all(5),
+    return GestureDetector(
+      onTapDown: (data) {
+        if (data.localPosition.distance < 40) {
+          setState(() {
+            pressed = false;
+          });
+        } else {
+          setState(() {
+            pressed = true;
+          });
+        }
+      },
+      onTapUp: (data) {
+        if (data.localPosition.distance < 40) {
+          setState(() {
+            pressed = true;
+          });
+        } else {
+          setState(() {
+            pressed = false;
+          });
+        }
+      },
+      onHorizontalDragEnd: (x) {
+        setState(() {
+          pressed = false;
+        });
+      },
+      onVerticalDragEnd: (x) {
+        setState(() {
+          pressed = false;
+        });
+      },
       child: Container(
-        alignment: Alignment.centerLeft,
-        padding: EdgeInsets.only(left: 28),
-        child: Text(
-          widget.text,
-          style: TextStyle(
-            fontFamily: "Montserrat",
-            fontSize: 32,
-            color: widget.theme.text,
+        decoration: (pressed) ? this.pressedDecoration : this.normalDecoration,
+        width: 200,
+        height: 80,
+        margin: EdgeInsets.all(5),
+        child: Container(
+          alignment: Alignment.centerLeft,
+          padding: EdgeInsets.only(left: 28),
+          child: Text(
+            widget.text,
+            style: TextStyle(
+              fontFamily: "Montserrat",
+              fontSize: 32,
+              color: widget.theme.text,
+            ),
           ),
         ),
       ),
